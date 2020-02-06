@@ -8,11 +8,11 @@ import {useShrinkUrl} from '../../utils/shrinkUrl';
 
 const HomePage = () => {
     const [longUrl, setLongUrl] = useState('');
-    const {shortUrl, isLoading, error, shrinkUrl} = useShrinkUrl();
+    const {shortUrl, isLoading, error, setShortUrl, shrinkUrl} = useShrinkUrl();
 
     return (
         <div className='home-page'>
-            {shortUrl.length > 0 ? <ShortUrlResult shortUrl={shortUrl} setLongUrl={setLongUrl}/> : 
+            {shortUrl.length > 0 ? <ShortUrlResult shortUrl={shortUrl} setShortUrl={setShortUrl}/> : 
             <InitialForm longUrl={longUrl} setLongUrl={setLongUrl} shrinkUrl={shrinkUrl}
                 isLoading={isLoading} error={error} /> }
         </div>

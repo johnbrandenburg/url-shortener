@@ -18,7 +18,7 @@ const InitialForm = ({longUrl, isLoading, error, setLongUrl, shrinkUrl}:
 
     return (
         <div className='initial-form'>
-            {isLoading ? <h4>Loading...</h4> : <div>
+            {isLoading ? <h4 className='loading-text'>Loading...</h4> : <div>
                 <h3 className='welcome-text'>Put any valid URL in the field below, and we will 
                 generate a short version taking you to the same place!</h3>
                 <form onSubmit={formSubmit} className='home-page__form'>
