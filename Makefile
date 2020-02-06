@@ -7,6 +7,7 @@
 # anything else that needs to happen before your server is started
 # for the first time
 setup:
+	docker run --name mongodb -d  -p 27017:27017 mongo:3.4.24-xenial
 
 # `make server` will be used after `make setup` in order to start
 # an http server process that listens on any unreserved port
@@ -16,3 +17,6 @@ server:
 # `make test` will be used after `make setup` in order to run
 # your test suite.
 test:
+
+clean:
+	docker rm -f mongodb | true
