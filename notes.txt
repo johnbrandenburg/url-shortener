@@ -1,0 +1,12 @@
+The only dependency for running this suite of apps is docker, follow the link for guidance on the installation process if needed: https://docs.docker.com/install/
+
+Run the following series of commands in the root directory after cloning the project from github:
+
+make setup // builds docker images for api and ui
+make server // runs mongodb, api and ui
+make test // runs unit tests for api and ui
+make clean // stops running containers
+
+The application can be accessed at http://localhost:3000.
+
+This project lacks dao level and UI e2e tests which were not implemented, but should be for production use.
