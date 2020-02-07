@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const proxy = require('http-proxy-middleware');
 const app = express();
@@ -16,7 +17,7 @@ const filter = (path, req) => {
 };
 
 app.use(
-    proxy(filter, { target: 'http://localhost:8080', 
+    proxy(filter, { target: `${process.env.API_HOST}`, 
         changeOrigin: true,
         pathRewrite: {
             '^/api': ''

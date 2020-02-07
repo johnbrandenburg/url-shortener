@@ -8,7 +8,7 @@ const ShortUrlResult = ({shortUrl, setShortUrl}: {shortUrl: string, setShortUrl:
         <div>   
             <h3 className='success-text'>Your shortened URL is below:</h3>
             <br/>
-            <a href={shortUrl}>{'http://' + window.location.host + '/' + shortUrl}</a>
+            <a href={'/' + shortUrl}>{'http://' + window.location.host + '/' + shortUrl}</a>
             <br/>
             <Button className='reset-form-button' onClick={() => setShortUrl('')} variant="contained" color="primary">
                 Shrink Another URL

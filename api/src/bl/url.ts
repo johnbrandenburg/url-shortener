@@ -1,4 +1,4 @@
-import {getHighestUrl, createNewUrl, getLongUrl} from '../db/url/dao';
+import {getHighestUrl, createNewUrl, getLongUrl} from '../db/url';
 
 export const shrinkUrl = async (longUrl: string) => {
     const shortUrl = Buffer.alloc(4);
