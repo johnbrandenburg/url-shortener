@@ -16,5 +16,17 @@ defmodule Fawkes.Url.Schema do
     url
     |> cast(attrs, [:short_url, :long_url])
     |> validate_required([:short_url, :long_url])
+    |> unique_constraint(:short_url)
+  end
+
+  @doc false
+  def generate_short_url() do
+    <<short_url_hex::binary-size(3), _::binary>> = Ecto.UUID.bingenerate()
+
+    {short_url, ""} = short_url_hex
+    |> Base.encode16()
+    |> Integer.parse(16)
+
+    short_url
   end
 end
