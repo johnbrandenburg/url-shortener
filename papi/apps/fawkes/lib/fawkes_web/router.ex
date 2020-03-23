@@ -7,5 +7,7 @@ defmodule FawkesWeb.Router do
 
   scope "/api/fawkes", FawkesWeb do
     pipe_through :api
+
+    resources "/urls", UrlController, except: [:new, :edit]
   end
 end
