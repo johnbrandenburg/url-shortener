@@ -1,3 +1,0 @@
-# FawkesApi
-
-**TODO: Add description**
