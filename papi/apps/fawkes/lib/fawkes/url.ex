@@ -7,21 +7,11 @@ defmodule Fawkes.Url do
   alias Fawkes.Repo
   alias Fawkes.Url.Schema
 
-  @doc """
-  Gets a single url.
+  @doc false
 
-  Raises `Ecto.NoResultsError` if the Url does not exist.
-
-  ## Examples
-
-      iex> get_url!(123)
-      %Url{}
-
-      iex> get_url!(456)
-      ** (Ecto.NoResultsError)
-
-  """
-  def get_url!(id), do: Repo.get!(Schema, id)
+  def get_url_by_short_url(short_url) do
+    Repo.get_by(Schema, short_url: short_url)
+  end
 
   @doc """
   Creates a url.

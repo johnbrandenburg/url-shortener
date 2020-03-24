@@ -15,8 +15,9 @@ defmodule FawkesWeb.UrlController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    url = Url.get_url!(id)
-    render(conn, "url.json", url: url)
+  def show(conn, %{"id" => short_url}) do
+    with %Schema{long_url: long_url} <- Url.get_url_by_short_url(short_url) do
+      redirect(conn, external: long_url)
+    end
   end
 end
