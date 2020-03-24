@@ -8,6 +8,7 @@ defmodule FawkesWeb.Router do
   scope "/api/fawkes", FawkesWeb do
     pipe_through :api
 
-    resources "/urls", UrlController, only: [:create, :show]
+    get "/:short_url", UrlController, :stretch
+    post "/url/shrink", UrlController, :shrink
   end
 end

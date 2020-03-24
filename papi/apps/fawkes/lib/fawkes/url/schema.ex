@@ -21,9 +21,9 @@ defmodule Fawkes.Url.Schema do
 
   @doc false
   def generate_short_url() do
-    <<short_url_hex::binary-size(3), _::binary>> = Ecto.UUID.bingenerate()
+    <<short_url_bin::binary-size(3), _::binary>> = Ecto.UUID.bingenerate()
 
-    {short_url, ""} = short_url_hex
+    {short_url, ""} = short_url_bin
     |> Base.encode16()
     |> Integer.parse(16)
 

@@ -6,17 +6,17 @@ defmodule FawkesWeb.UrlController do
 
   action_fallback FawkesWeb.FallbackController
 
-  def create(conn, %{"url" => url_params}) do
-    with {:ok, %Schema{} = url} <- Url.create_url(url_params) do
+  def shrink(conn, %{"longUrl" => long_url}) do
+    with {:ok, %Schema{short_url: short_url}} <- Url.create_url(%{long_url: long_url}) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.url_path(conn, :show, url))
-      |> render("url.json", url: url)
+      |> render("short_url.json", %{short_url: Base.encode16(<<short_url::3*8>>)})
     end
   end
 
-  def show(conn, %{"id" => short_url}) do
-    with %Schema{long_url: long_url} <- Url.get_url_by_short_url(short_url) do
+  def stretch(conn, %{"short_url" => short_url_hex}) do
+    with {short_url_int, ""} <- Integer.parse(short_url_hex, 16),
+         %Schema{long_url: long_url} <- Url.get_url_by_short_url(short_url_int) do
       redirect(conn, external: long_url)
     end
   end
