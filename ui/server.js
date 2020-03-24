@@ -20,7 +20,8 @@ app.use(
     proxy(filter, { target: `${process.env.API_HOST}`, 
         changeOrigin: true,
         pathRewrite: {
-            '^/api': ''
+            '^/api': '/api/fawkes',
+            '^/': '/api/fawkes/'
         }
     })
 );

@@ -1,3 +1,17 @@
+## Phoenix Based API
+dependencies:
+  - node v13.11.0
+  - postgresql 12
+  - IEx 1.10.2
+  - Phoenix v1.4.16
+
+to run:
+  - `cd ui && npm i && npm run build && npm run serve`
+
+  - [in another terminal]
+  `cd ../papi && mix phx.server`
+# =================================
+
 # STORD URL Shortener Exercise
 The goal of this exercise is to create a URL shortener web application in the same vein as [bitly](https://bitly.com/), [TinyURL](https://tinyurl.com/), or the now defunct [Google URL Shortener](https://goo.gl/). It is intentionally open-ended and you are welcome to implement your solution using the language and tech stack of your choice, but the core functionality of the application should be expressed through your own original code. This is your opportunity to show off your design and development strengths to our engineering team.
 
