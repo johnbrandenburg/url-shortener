@@ -8,7 +8,6 @@ defmodule Fawkes.Url do
   alias Fawkes.Url.Schema
 
   @doc false
-
   def get_url_by_short_url(short_url) do
     Repo.get_by(Schema, short_url: short_url)
   end
